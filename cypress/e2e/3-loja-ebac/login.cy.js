@@ -1,8 +1,10 @@
 /// <reference types="cypress"/>
+const perfil = require('../../fixtures/perfil.json') // importar massa de dados (fixtures)
+
 
 describe('Funcionalidade: Login', ()=> {
     beforeEach(() => {
-        cy.visit ('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit ('minha-conta/')
      });
 
      afterEach(() => {
@@ -41,7 +43,29 @@ it('Deve exibir uma mensagem de erro ao Deixar campos em branco', () => {
     cy.get('.woocommerce-error > li').should('contain', 'Erro: Nome de usuário é obrigatório.')
 });
 
+it ('Deve fazer login com sucesso - usando massa de dados', () => {
+    cy.get('#username').type(perfil.usuario)
+    cy.get('#password').type(perfil.senha)
+    cy.get('#rememberme').check()
+    cy.get('.woocommerce-form > .button').click()
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, itna.teste (não é itna.teste? Sair)')
+ 
+})
 
+it.only ('Deve fazer login com sucesso - usando fixture', () => {
+   cy.fixture('perfil') // nome do arquivo fixture
+    . then( dados => {
+        cy.get('#username').type(dados.usuario)
+        cy.get('#password').type(dados.senha, {log: false}) // não aparecer a senha no print
+        cy.get('#rememberme').check()
+        cy.get('.woocommerce-form > .button').click()
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, itna.teste (não é itna.teste? Sair)')
+ 
+
+
+
+    })
+})
 
 })
 
