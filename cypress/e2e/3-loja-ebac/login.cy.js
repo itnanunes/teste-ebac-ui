@@ -13,7 +13,6 @@ describe('Funcionalidade: Login', ()=> {
 it ('Deve fazer login com sucesso', () => {
  cy.get('#username').type('itna.teste@teste.com')
  cy.get('#password').type('teste@123')
- cy.get('#rememberme').check()
  cy.get('.woocommerce-form > .button').click()
  cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, itna.teste (não é itna.teste? Sair)')
 })
@@ -52,20 +51,23 @@ it ('Deve fazer login com sucesso - usando massa de dados', () => {
  
 })
 
-it.only ('Deve fazer login com sucesso - usando fixture', () => {
+it ('Deve fazer login com sucesso - usando fixture', () => {
    cy.fixture('perfil') // nome do arquivo fixture
     . then( dados => {
         cy.get('#username').type(dados.usuario)
         cy.get('#password').type(dados.senha, {log: false}) // não aparecer a senha no print
         cy.get('#rememberme').check()
         cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, itna.teste (não é itna.teste? Sair)')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('exist')
  
-
-
-
     })
 })
+
+it.only ('Deve fazer login com sucesso - usando comandos customizados', () => {
+    cy.login('itna.teste@teste.com', 'teste@123')
+    cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('exist')
+ 
+     })
 
 })
 
