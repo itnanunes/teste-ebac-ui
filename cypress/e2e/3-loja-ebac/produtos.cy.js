@@ -17,4 +17,6 @@ describe('Funcionalidade: Produtos', () => {
        cy.get('#tab-title-additional_information > a').should('contain', 'Informação adicional')
         
     });
+
+    
 });
