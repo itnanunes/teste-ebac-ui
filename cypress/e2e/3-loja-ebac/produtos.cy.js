@@ -18,5 +18,18 @@ describe('Funcionalidade: Produtos', () => {
         
     });
 
-    
+    it('Deve Buscar um produto com sucesso', () => {
+       produtosPage.buscarProduto('')
+        
+    });
+
+    it('Deve visitar a pagina do produtos', () => {
+       
+        
+    });
+
+    it('Deve adicionar produto ao carrinho', () => {
+       
+        
+    });
 });

@@ -1,7 +1,7 @@
 {
   "name": "ebac",
   "version": "1.0.0",
-  "description": "",
+  "description": "[Automação Cypress [Módulo 11]](https://github.com/itnanunes/teste-ebac-ui/tree/main/cypress/e2e/3-loja-ebac)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,6 @@
     "@faker-js/faker": "^8.4.1"
   },
   "devDependencies": {
-    "cypress": "^13.7.2"
+    "cypress": "^13.7.3"
   }
 }
