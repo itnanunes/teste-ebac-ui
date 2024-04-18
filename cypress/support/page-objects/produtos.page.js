@@ -9,7 +9,7 @@ visitarUrl(){
     }
 
     buscarProdutoLista(nomeProduto){
-        cy.get('.product > .row')
+        cy.get('.product-block')
     .contains(nomeProduto) //busca pelo nome
     .click() 
     }
