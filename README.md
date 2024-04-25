@@ -51,3 +51,13 @@
 
 
 
+#### Executando o cypress sem abrir a pagina
+npx cypress run => Depois de configurado no package. json fica: npm run test
+
+- Criando vídeo: Configura na pasta cypress.config.js
+
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  video: true,
+})

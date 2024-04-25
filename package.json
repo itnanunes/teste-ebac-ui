@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "[Automação Cypress [Módulo 11]](https://github.com/itnanunes/teste-ebac-ui/tree/main/cypress/e2e/3-loja-ebac)",
   "main": "index.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --browser chrome",
+    "cy:dash": "npx cypress run --record --key 6b4f77fe-d860-477e-94d4-1a6ae2cc414b"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
